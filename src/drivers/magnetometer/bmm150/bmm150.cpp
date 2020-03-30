@@ -471,10 +471,7 @@ BMM150::collect()
 		poll_notify(POLLIN);
 	}
 
-	if (mag_notify && !(_pub_blocked)) {
-		/* publish it */
-		orb_publish(ORB_ID(sensor_mag), _topic, &mrb);
-	}
+	orb_publish(ORB_ID(sensor_mag), _topic, &mrb);
 
 	perf_end(_sample_perf);
 	return OK;
